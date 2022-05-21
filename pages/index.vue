@@ -10,7 +10,7 @@
       </div>
     </main>
     <footer>
-      
+      <FooterContent />
     </footer>
   </div>
 </template>
