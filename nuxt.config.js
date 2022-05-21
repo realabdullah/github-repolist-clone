@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'github-repolist-clone',
+    title: 'realabdullah (Abdullahi Odesanmi) / Repositories . GitHub',
     htmlAttrs: {
       lang: 'en'
     },
