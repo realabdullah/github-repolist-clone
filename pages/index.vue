@@ -5,6 +5,7 @@
       <DesktopAction />
       <div class="container">
         <ProfileDetails />
+        <MobileAction />
       </div>
     </main>
   </div>
