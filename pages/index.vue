@@ -6,8 +6,12 @@
       <div class="container">
         <ProfileDetails />
         <MobileAction />
+        <RepoDetails />
       </div>
     </main>
+    <footer>
+      
+    </footer>
   </div>
 </template>
 
