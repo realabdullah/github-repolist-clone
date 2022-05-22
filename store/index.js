@@ -51,8 +51,6 @@ export const actions = {
         }
       `
     })
-    console.log(response.data.user)
-
     await commit("updateUserData", response.data.user)
   }
 }
