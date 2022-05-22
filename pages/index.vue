@@ -17,6 +17,9 @@
 
 <script>
 export default {
-  name: "IndexPage"
+  name: "IndexPage",
+  mounted () {
+    this.$store.dispatch('getData')
+  }
 };
 </script>

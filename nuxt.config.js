@@ -36,7 +36,16 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // GraphQl Apollo Client
+    '@nuxtjs/apollo'
   ],
+
+  // Apollo configuration
+  apollo: {
+    clientConfigs: {
+      default: '~/plugins/alt-apollo-config.js'
+    },
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -44,5 +53,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  //env variables
+  env: {
+    nuxtApiUrl: process.env.NUXT_API_ENDPOINT,
+    accessToken: process.env.NUXT_ACCESS_TOKEN
   }
 }
