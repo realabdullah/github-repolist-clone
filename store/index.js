@@ -1,7 +1,8 @@
 import gql from 'graphql-tag'
 
 export const state = () => ({
-  userData: []
+  userData: [],
+  repoData: []
 })
 
 export const actions = {
@@ -39,25 +40,25 @@ export const actions = {
       {
         user(login: "realabdullah") {
           repositories(
-            last: 30
-            privacy: PUBLIC
+            first: 30
             orderBy: {field: UPDATED_AT, direction: DESC}
+            privacy: PUBLIC
           ) {
-            totalCount
-            nodes {
-              visibility
-              url
-              updatedAt
-              stargazerCount
-              primaryLanguage {
-                color
+            edges {
+              cursor
+              node {
+                id
                 name
-              }
-              name
-              interactionAbility {
-                expiresAt
+                primaryLanguage {
+                  color
+                  name
+                }
+                updatedAt
+                url
+                visibility
               }
             }
+            totalCount
           }
           starredRepositories {
             totalCount
@@ -77,6 +78,7 @@ export const mutations = {
 
   updateRepoData: (state, payload) => {
     state.repoData = payload
+    // console.log(state.repoData.repositories.nodes[0].primaryLanguage)
   }
 }
 

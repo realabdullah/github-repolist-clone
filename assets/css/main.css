@@ -431,13 +431,13 @@ main {
 .__technology {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .1rem;
 }
 
 .tech__color {
   width: 13px;
   height: 13px;
-  background: green;
+  /* background: green; */
   border-radius: 50%;
 }
 

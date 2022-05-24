@@ -190,18 +190,18 @@
     </div>
 
     <div class="repo__list">
-      <div class="__repo" v-for="(repo, i) in repoData.repositories.nodes" :key="i">
+      <div class="__repo" v-for="(repo, i) in repoData.repositories.edges" :key="i">
         <div class="repo__detail">
           <div class="repo__name">
-            <a href="#" class="repo__title">{{ repo.name }}</a>
-            <span class="__visibility">{{ repo.visibility }}</span>
+            <a :href="repo.node.url" class="repo__title">{{ repo.node.name }}</a>
+            <span class="__visibility">{{ repo.node.visibility }}</span>
           </div>
           <div class="repo__info">
-            <div class="__technology" v-for="(lang, i) in repo.primaryLanguage" :key="i">
-              <div class="tech__color">{{ lang.color }}</div>
-              <p class="__lang">{{ lang.name }}</p>
+            <div class="__technology" v-for="(value, key) in repo.node.primaryLanguage" :key="key">
+              <div class="tech__color" v-if="key === 'color'" :style="{ background: value }" style="margin-right: -30px;"></div>
+              <p class="__lang" v-if="key === 'name'" style="margin-right: -600px !important;">{{ value }}</p> 
             </div>
-            <p class="repo__timeline">{{ repo.updatedAt}}</p>
+            <p class="repo__timeline">Updated on {{ repo.node.updatedAt}}</p>
           </div>
         </div>
         <div class="repo__graph">
