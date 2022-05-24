@@ -5,11 +5,12 @@ export const state = () => ({
 })
 
 export const actions = {
-  async getData({ commit }) {
+  async getUserDetails({ commit }) {
     let response = await this.app.apolloProvider.defaultClient.query({
       query: gql`
-        {
-          user(login: "realabdullah") {
+      {
+        user(login: "realabdullah") {
+          login
           avatarUrl
           bio
           followers {
@@ -18,37 +19,15 @@ export const actions = {
           following {
             totalCount
           }
-          login
           name
-          repositories(
-            orderBy: {field: CREATED_AT, direction: DESC}
-            privacy: PUBLIC
-            first: 30
-          ) {
-            totalCount
-            edges {
-              node {
-                homepageUrl
-                id
-                name
-                primaryLanguage {
-                  color
-                  name
-                }
-                updatedAt
-                url
-                visibility
-              }
-            }
-          }
           status {
+            emoji
             message
-            emojiHTML
           }
           twitterUsername
           websiteUrl
         }
-        }
+      }
       `
     })
     await commit("updateUserData", response.data.user)
@@ -58,7 +37,6 @@ export const actions = {
 export const mutations = {
   updateUserData: (state, payload) => {
     state.userData = payload
-    console.log(state.userData)
   }
 }
 

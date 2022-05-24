@@ -1,9 +1,6 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  // Disabling server-side rendering
   ssr: false,
-
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -29,6 +26,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/getData.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +37,14 @@ export default {
     // GraphQl Apollo Client
     '@nuxtjs/apollo'
   ],
+
+  // server middleware
+  // serverMiddleware: [
+  //   {
+  //     path: 'server-middleware',
+  //     handler: '~/server-middleware/index.js'
+  //   }
+  // ],
 
   // Apollo configuration
   apollo: {

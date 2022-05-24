@@ -193,7 +193,7 @@
       <div class="__repo">
         <div class="repo__detail">
           <div class="repo__name">
-            <a href="#" class="repo__title">advice-generator</a>
+            <a href="#" class="repo__title"></a>
             <span class="__visibility">Public</span>
           </div>
           <div class="repo__info">
@@ -263,55 +263,7 @@
             </g>
           </svg>
         </div>
-      </div>
-
-      <div class="__repo">
-        <div class="repo__detail">
-          <div class="repo__name">
-            <a href="#" class="repo__title">elearn </a>
-            <span class="__visibility">Public</span>
-          </div>
-          <div class="repo__info">
-            <div class="__technology">
-              <span class="tech__color"></span>
-              <p class="__lang">JavaScript</p>
-            </div>
-            <p class="repo__timeline">Updated on Apr 19</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="__repo">
-        <div class="repo__detail">
-          <div class="repo__name">
-            <a href="#" class="repo__title">acecoin-template</a>
-            <span class="__visibility">Public</span>
-          </div>
-          <div class="repo__info">
-            <div class="__technology">
-              <span class="tech__color"></span>
-              <p class="__lang">SCSS</p>
-            </div>
-            <p class="repo__timeline">Updated on Mar 21</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="__repo">
-        <div class="repo__detail">
-          <div class="repo__name">
-            <a href="#" class="repo__title">passwordless</a>
-            <span class="__visibility">Public</span>
-          </div>
-          <div class="repo__info">
-            <div class="__technology">
-              <span class="tech__color"></span>
-              <p class="__lang">JavaScript</p>
-            </div>
-            <p class="repo__timeline">Updated Updated on Mar 29</p>
-          </div>
-        </div>
-      </div>
+      </div>      
     </div>
 
     <div class="__pagination">
@@ -322,3 +274,8 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+}
+</script>
