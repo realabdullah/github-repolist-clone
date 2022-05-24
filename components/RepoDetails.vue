@@ -199,12 +199,12 @@
           <div class="repo__info">
             <div class="__technology" v-for="(value, key) in repo.node.primaryLanguage" :key="key">
               <div class="tech__color" v-if="key === 'color'" :style="{ background: value }" style="margin-right: -30px;"></div>
-              <p class="__lang" v-if="key === 'name'" style="margin-right: -600px !important;">{{ value }}</p> 
+              <p class="__lang" v-if="key === 'name'">{{ value }}</p> 
             </div>
             <p class="repo__timeline">Updated on {{ repo.node.updatedAt}}</p>
           </div>
         </div>
-        <div class="repo__graph">
+        <!-- <div class="repo__graph">
           <svg width="155" height="30">
             <defs>
               <linearGradient
@@ -262,7 +262,7 @@
               ></rect>
             </g>
           </svg>
-        </div>
+        </div> -->
       </div>      
     </div>
 
