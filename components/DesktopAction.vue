@@ -36,7 +36,7 @@
           ></path>
         </svg>
         <span class="action__title">Repositories</span>
-        <span class="__count">58</span>
+        <span class="__count">{{ repoData.repositories.totalCount }}</span>
       </a>
     </li>
     <li>
@@ -94,8 +94,18 @@
           ></path>
         </svg>
         <span class="action__title">Stars</span>
-        <span class="__count">21</span>
+        <span class="__count">{{ repoData.starredRepositories.totalCount }}</span>
       </a>
     </li>
   </ul>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    ...mapState(['repoData'])
+  }
+}
+</script>

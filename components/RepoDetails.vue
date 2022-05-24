@@ -190,18 +190,18 @@
     </div>
 
     <div class="repo__list">
-      <div class="__repo">
+      <div class="__repo" v-for="(repo, i) in repoData.repositories.nodes" :key="i">
         <div class="repo__detail">
           <div class="repo__name">
-            <a href="#" class="repo__title"></a>
-            <span class="__visibility">Public</span>
+            <a href="#" class="repo__title">{{ repo.name }}</a>
+            <span class="__visibility">{{ repo.visibility }}</span>
           </div>
           <div class="repo__info">
-            <div class="__technology">
-              <div class="tech__color"></div>
-              <p class="__lang">Vue</p>
+            <div class="__technology" v-for="(lang, i) in repo.primaryLanguage" :key="i">
+              <div class="tech__color">{{ lang.color }}</div>
+              <p class="__lang">{{ lang.name }}</p>
             </div>
-            <p class="repo__timeline">Updated 2 days ago</p>
+            <p class="repo__timeline">{{ repo.updatedAt}}</p>
           </div>
         </div>
         <div class="repo__graph">
@@ -276,6 +276,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
+  computed: {
+    ...mapState(['repoData'])
+  }
 }
 </script>

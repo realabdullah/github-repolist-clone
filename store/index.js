@@ -31,12 +31,52 @@ export const actions = {
       `
     })
     await commit("updateUserData", response.data.user)
+  },
+
+  async getRepoDetails({ commit }) {
+    let response = await this.app.apolloProvider.defaultClient.query({
+      query: gql`
+      {
+        user(login: "realabdullah") {
+          repositories(
+            last: 30
+            privacy: PUBLIC
+            orderBy: {field: UPDATED_AT, direction: DESC}
+          ) {
+            totalCount
+            nodes {
+              visibility
+              url
+              updatedAt
+              stargazerCount
+              primaryLanguage {
+                color
+                name
+              }
+              name
+              interactionAbility {
+                expiresAt
+              }
+            }
+          }
+          starredRepositories {
+            totalCount
+          }
+        }
+      }
+      `
+    })
+    await commit("updateRepoData", response.data.user)
   }
 }
 
 export const mutations = {
   updateUserData: (state, payload) => {
     state.userData = payload
+  },
+
+  updateRepoData: (state, payload) => {
+    state.repoData = payload
   }
 }
 
