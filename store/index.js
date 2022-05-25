@@ -40,7 +40,7 @@ export const actions = {
       {
         user(login: "realabdullah") {
           repositories(
-            first: 30
+            first: 58
             orderBy: {field: UPDATED_AT, direction: DESC}
             privacy: PUBLIC
           ) {
@@ -59,6 +59,12 @@ export const actions = {
               }
             }
             totalCount
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
+            }
           }
           starredRepositories {
             totalCount
@@ -68,6 +74,7 @@ export const actions = {
       `
     })
     await commit("updateRepoData", response.data.user)
+    console.log(response.data.user)
   }
 }
 
@@ -78,7 +85,6 @@ export const mutations = {
 
   updateRepoData: (state, payload) => {
     state.repoData = payload
-    // console.log(state.repoData.repositories.nodes[0].primaryLanguage)
   }
 }
 

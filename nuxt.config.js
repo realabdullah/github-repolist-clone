@@ -1,7 +1,4 @@
 export default {
-  // Disabling server-side rendering
-  ssr: false,
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'realabdullah (Abdullahi Odesanmi) / Repositories . GitHub',
@@ -37,14 +34,6 @@ export default {
     // GraphQl Apollo Client
     '@nuxtjs/apollo'
   ],
-
-  // server middleware
-  // serverMiddleware: [
-  //   {
-  //     path: 'server-middleware',
-  //     handler: '~/server-middleware/index.js'
-  //   }
-  // ],
 
   // Apollo configuration
   apollo: {
