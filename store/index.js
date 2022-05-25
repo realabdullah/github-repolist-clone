@@ -34,13 +34,13 @@ export const actions = {
     await commit("updateUserData", response.data.user)
   },
 
-  async getRepoDetails({ commit }) {
+  async getRepoDetails({ state, commit }) {
     let response = await this.app.apolloProvider.defaultClient.query({
       query: gql`
-      {
+       query getUser ($first: Int) {
         user(login: "realabdullah") {
           repositories(
-            first: 58
+            first: $first,
             orderBy: {field: UPDATED_AT, direction: DESC}
             privacy: PUBLIC
           ) {
@@ -71,10 +71,12 @@ export const actions = {
           }
         }
       }
-      `
+      `,
+      variables: {
+        first: 30,
+      }
     })
     await commit("updateRepoData", response.data.user)
-    console.log(response.data.user)
   }
 }
 
