@@ -16,17 +16,8 @@
   --border-active: #f78166;
 }
 
-.light-theme {
-  --bg: #fdfcfc;
-  --color-text: #24292f;
-  --text-dark: #24292f;
-  --btn-light-color: #f6f8fa;
-  --btn-border-color: #d5d7da;
-  --badge-bg: #eff1f3;
-  --primary-link: #0969da;
-}
-
-.dark-theme {
+@media (prefers-color-scheme: dark) {
+  :root {
   --bg: #0d1117;
   --color-text: #c9d1d9;
   --text-dark: #c9d1d9;
@@ -35,6 +26,7 @@
   --badge-bg: #6e768166;
   --badge-color: #c9d1d9;
   --primary-link: #58a6ff;
+  }  
 }
 
 * {
