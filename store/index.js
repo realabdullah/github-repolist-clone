@@ -2,7 +2,8 @@ import gql from 'graphql-tag'
 
 export const state = () => ({
   userData: [],
-  repoData: []
+  repoData: [],
+  endCursor: ''
 })
 
 export const actions = {
@@ -41,6 +42,7 @@ export const actions = {
         user(login: "realabdullah") {
           repositories(
             first: $first,
+            isFork: false
             orderBy: {field: UPDATED_AT, direction: DESC}
             privacy: PUBLIC
           ) {
@@ -56,6 +58,8 @@ export const actions = {
                 updatedAt
                 url
                 visibility
+                description
+                forkCount
               }
             }
             totalCount
@@ -77,6 +81,58 @@ export const actions = {
       }
     })
     await commit("updateRepoData", response.data.user)
+    await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
+  },
+
+  async getMoreRepoDetails({ state, commit }) {
+    let response = await this.app.apolloProvider.defaultClient.query({
+      query: gql`
+       query getMoreRepo ($after: String, $first: Int) {
+        user(login: "realabdullah") {
+          repositories(
+            after: $after,
+            first: $first,
+            isFork: false
+            orderBy: {field: UPDATED_AT, direction: DESC}
+            privacy: PUBLIC
+          ) {
+            edges {
+              cursor
+              node {
+                id
+                name
+                primaryLanguage {
+                  color
+                  name
+                }
+                updatedAt
+                url
+                visibility
+                description
+                forkCount
+              }
+            }
+            totalCount
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
+            }
+          }
+          starredRepositories {
+            totalCount
+          }
+        }
+      }
+      `,
+      variables: {
+        first: 30,
+        after: state.endCursor
+      }
+    })
+    await commit("updateRepoData", response.data.user)
+    await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
   }
 }
 
@@ -87,6 +143,10 @@ export const mutations = {
 
   updateRepoData: (state, payload) => {
     state.repoData = payload
+  },
+
+  updateEndCursor: (state, payload) => {
+    state.endCursor = payload
   }
 }
 

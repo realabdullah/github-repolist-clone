@@ -26,6 +26,8 @@
   --badge-bg: #6e768166;
   --badge-color: #c9d1d9;
   --primary-link: #58a6ff;
+  --btn-disabled-color: #58a6ff80;
+  --btn-disabled-bg: #0d1117;
   }  
 }
 
@@ -491,6 +493,13 @@ main {
   padding: .4rem 1rem;
   color: var(--primary-link);
   font-size: .8rem;
+  font-weight: 500;
+}
+
+.paginate__.disabled {
+  background: var(--btn-disabled-bg);
+  color: var(--btn-disabled-color);
+  cursor: not-allowed;
 }
 
 footer {

@@ -3,10 +3,7 @@
     <div class="actions__tab">
       <div class="__actions">
         <label for="search">
-          <input
-            class="repo__search"
-            placeholder="Find a repository..."
-          />
+          <input class="repo__search" placeholder="Find a repository..." />
         </label>
         <div class="__filters">
           <details class="details">
@@ -189,18 +186,35 @@
     </div>
 
     <div class="repo__list">
-      <div class="__repo" v-for="(repo, i) in repoData.repositories.edges" :key="i">
+      <div
+        class="__repo"
+        v-for="(repo, i) in repoData.repositories.edges"
+        :key="i"
+      >
         <div class="repo__detail">
           <div class="repo__name">
-            <a :href="repo.node.url" class="repo__title">{{ repo.node.name }}</a>
+            <a :href="repo.node.url" class="repo__title">{{
+              repo.node.name
+            }}</a>
             <span class="__visibility">{{ repo.node.visibility }}</span>
           </div>
           <div class="repo__info">
-            <div class="__technology" v-for="(value, key) in repo.node.primaryLanguage" :key="key">
-              <div class="tech__color" v-if="key === 'color'" :style="{ background: value }" style="margin-right: -30px;"></div>
-              <p class="__lang" v-if="key === 'name'">{{ value }}</p> 
+            <div
+              class="__technology"
+              v-for="(value, key) in repo.node.primaryLanguage"
+              :key="key"
+            >
+              <div
+                class="tech__color"
+                v-if="key === 'color'"
+                :style="{ background: value }"
+                style="margin-right: -30px"
+              ></div>
+              <p class="__lang" v-if="key === 'name'">{{ value }}</p>
             </div>
-            <p class="repo__timeline">Updated on {{ $moment(repo.node.updatedAt).format('LL') }}</p>
+            <p class="repo__timeline">
+              Updated on {{ $moment(repo.node.updatedAt).format("LL") }}
+            </p>
           </div>
         </div>
         <!-- <div class="repo__graph">
@@ -262,24 +276,45 @@
             </g>
           </svg>
         </div> -->
-      </div>      
+      </div>
     </div>
 
     <div class="__pagination">
-      <button class="btn paginate__" aria-label="Previous" disabled>
+      <button
+        class="btn paginate__"
+        :class="
+          repoData.repositories.pageInfo.hasPreviousPage ? '' : 'disabled'
+        "
+        :disabled="repoData.repositories.pageInfo.hasPreviousPage"
+        aria-label="Previous"
+      >
         Previous
       </button>
-      <button class="btn paginate__" aria-label="Next">Next</button>
+      <button
+        class="btn paginate__"
+        :class="!repoData.repositories.pageInfo.hasNextPage ? 'disabled' : ''"
+        :disabled="!repoData.repositories.pageInfo.hasNextPage"
+        aria-label="Next"
+        @click="this.getMore"
+      >
+        Next
+      </button>
     </div>
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
+  methods: {
+    getMore() {
+      this.$store.dispatch("getMoreRepoDetails");
+    },
+  },
+
   computed: {
-    ...mapState(['repoData'])
-  }
-}
+    ...mapState(["repoData"]),
+  },
+};
 </script>
