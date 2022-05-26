@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 export const state = () => ({
   userData: [],
   repoData: [],
+  startCursor: '',
   endCursor: ''
 })
 
@@ -81,6 +82,7 @@ export const actions = {
       }
     })
     await commit("updateRepoData", response.data.user)
+    await commit("updateStartCursor", response.data.user.repositories.pageInfo.startCursor)
     await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
   },
 
@@ -132,6 +134,59 @@ export const actions = {
       }
     })
     await commit("updateRepoData", response.data.user)
+    await commit("updateStartCursor", response.data.user.repositories.pageInfo.startCursor)
+    await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
+  },
+
+  async getLessRepoDetails({ state, commit }) {
+    let response = await this.app.apolloProvider.defaultClient.query({
+      query: gql`
+       query getLessRepo ($before: String, $first: Int) {
+        user(login: "realabdullah") {
+          repositories(
+            before: $before,
+            first: $first,
+            isFork: false
+            orderBy: {field: UPDATED_AT, direction: DESC}
+            privacy: PUBLIC
+          ) {
+            edges {
+              cursor
+              node {
+                id
+                name
+                primaryLanguage {
+                  color
+                  name
+                }
+                updatedAt
+                url
+                visibility
+                description
+                forkCount
+              }
+            }
+            totalCount
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
+            }
+          }
+          starredRepositories {
+            totalCount
+          }
+        }
+      }
+      `,
+      variables: {
+        first: 30,
+        before: state.startCursor
+      }
+    })
+    await commit("updateRepoData", response.data.user)
+    await commit("updateStartCursor", response.data.user.repositories.pageInfo.startCursor)
     await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
   }
 }
@@ -147,6 +202,10 @@ export const mutations = {
 
   updateEndCursor: (state, payload) => {
     state.endCursor = payload
+  },
+
+  updateStartCursor: (state, payload) => {
+    state.startCursor = payload
   }
 }
 

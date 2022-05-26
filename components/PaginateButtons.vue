@@ -5,8 +5,9 @@
       :class="
         repoData.repositories.pageInfo.hasPreviousPage ? '' : 'disabled'
       "
-      :disabled="repoData.repositories.pageInfo.hasPreviousPage"
+      :disabled="!repoData.repositories.pageInfo.hasPreviousPage"
       aria-label="Previous"
+      @click="this.prevData"
     >
       Previous
     </button>
@@ -29,6 +30,10 @@ export default {
   methods: {
     getMore() {
       this.$store.dispatch("getMoreRepoDetails");
+    },
+
+    prevData() {
+      this.$store.dispatch("getLessRepoDetails");
     },
   },
 
