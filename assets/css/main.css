@@ -81,7 +81,7 @@ header {
 }
 
 .right__header {
-  gap: .9rem;
+  gap: .3rem;
 }
 
 .__search label {
@@ -299,6 +299,7 @@ main {
   outline: none;
   border-radius: 5px;
   margin-right: .8rem;
+  font-size: .9rem;
 }
 
 .__filters {
@@ -415,6 +416,7 @@ main {
   padding: 0 .5rem;
   color: var(--border-color);
   font-size: .7rem;
+  text-transform: lowercase;
 }
 
 .repo__info {
@@ -516,11 +518,11 @@ footer {
 
 @media (max-width: 780px) {
   header {
-    padding: .6rem 1.3rem;
+    padding: .3rem 1.3rem;
   }
 
   main {
-    padding: 1.3rem;
+    padding: 0.5rem 1.3rem;
   }
 
   .container {
@@ -537,8 +539,8 @@ footer {
   .__avatar {
     margin-top: 0;
     margin-right: 1rem;
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
   }
 
   .__avatar img {
@@ -582,6 +584,11 @@ footer {
   .mobile__action {
     display: flex;
     overflow: auto;
+    padding-left: 220px;
+  }
+
+  .mobile__action::-webkit-scrollbar {
+    width: 1px;
   }
 
   .desktop__action {
