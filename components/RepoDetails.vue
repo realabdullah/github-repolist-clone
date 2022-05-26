@@ -200,7 +200,7 @@
               <div class="tech__color" v-if="key === 'color'" :style="{ background: value }" style="margin-right: -30px;"></div>
               <p class="__lang" v-if="key === 'name'">{{ value }}</p> 
             </div>
-            <p class="repo__timeline">Updated on {{ repo.node.updatedAt}}</p>
+            <p class="repo__timeline">Updated on {{ $moment(repo.node.updatedAt).format('LL') }}</p>
           </div>
         </div>
         <!-- <div class="repo__graph">

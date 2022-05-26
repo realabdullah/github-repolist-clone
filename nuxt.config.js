@@ -32,7 +32,9 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // GraphQl Apollo Client
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    // MomentJs
+    '@nuxtjs/moment'
   ],
 
   // Apollo configuration
