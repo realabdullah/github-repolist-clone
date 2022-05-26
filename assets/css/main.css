@@ -618,6 +618,7 @@ footer {
 
   .mobile__action {
     display: flex;
+    justify-content: flex-start;
     overflow: auto;
   }
 
@@ -643,12 +644,6 @@ footer {
 
   .footer__content {
     justify-content: center;
-  }
-}
-
-@media (max-width: 380px) {
-  .mobile__action {
-    padding-left: 240px;
   }
 }
 
