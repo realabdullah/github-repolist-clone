@@ -451,7 +451,7 @@ main {
   margin-top: .8rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.3rem;
 }
 
 .repo__timeline {
@@ -462,7 +462,7 @@ main {
 .__technology {
   display: flex;
   align-items: center;
-  gap: .1rem;
+  padding-right: 0.8rem;
 }
 
 .__lang {
