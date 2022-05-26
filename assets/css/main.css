@@ -584,7 +584,7 @@ footer {
   .mobile__action {
     display: flex;
     overflow: auto;
-    padding-left: 220px;
+    padding-left: 240px;
   }
 
   .mobile__action::-webkit-scrollbar {
