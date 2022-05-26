@@ -22,6 +22,5 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^3.0.3"
   }
 }
