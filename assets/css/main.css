@@ -234,6 +234,13 @@ main {
   font-weight: 400;
 }
 
+.__status {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding-bottom: .5rem;
+}
+
 .__others {
   margin: .7rem 0;
   display: flex;

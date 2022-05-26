@@ -22,8 +22,8 @@ export const actions = {
           }
           name
           status {
-            emoji
             message
+            emojiHTML
           }
           twitterUsername
           websiteUrl

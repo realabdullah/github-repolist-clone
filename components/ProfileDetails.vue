@@ -14,6 +14,14 @@
         </div>
       </div>
       <button class="follow__btn btn" aria-label="Follow Button">Follow</button>
+      <div class="__status">
+        <span class="status__emoji">
+          <g-emoji class="g-emoji">
+            {{ userData.status.emoji }}
+          </g-emoji>
+        </span>
+        <span class="status__tetx">{{ userData.status.message }}</span>
+      </div>
       <p class="about__info">{{ userData.bio }}</p>
       <div class="__others">
         <div class="url__link">

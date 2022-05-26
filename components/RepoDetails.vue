@@ -5,7 +5,6 @@
         <label for="search">
           <input
             class="repo__search"
-            type="search"
             placeholder="Find a repository..."
           />
         </label>
