@@ -20,7 +20,7 @@
       </a>
     </li>
     <li>
-      <a class="tab__link" href="#">
+      <a class="tab__link active" href="#">
         <svg
           aria-hidden="true"
           height="16"
