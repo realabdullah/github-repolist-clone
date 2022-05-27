@@ -6,6 +6,7 @@
           class="repo__search"
           type="search"
           placeholder="Find a repository..."
+          ref="details"
         />
       </label>
       <div class="__filters">
@@ -25,29 +26,9 @@
                     <Close />
                   </span>
                 </div>
-                <div class="__option">
-                  <input id="all" type="radio" value="all" checked />
-                  <label for="all">All</label>
-                </div>
-                <div class="__option">
-                  <input id="Sources" type="radio" value="Sources" />
-                  <label for="Sources">Sources</label>
-                </div>
-                <div class="__option">
-                  <input id="Forks" type="radio" value="Forks" />
-                  <label for="Forks">Forks</label>
-                </div>
-                <div class="__option">
-                  <input id="Archived" type="radio" value="Archived" />
-                  <label for="Archived">Archived</label>
-                </div>
-                <div class="__option">
-                  <input id="Mirrors" type="radio" value="Mirrors" />
-                  <label for="Mirrors">Mirrors</label>
-                </div>
-                <div class="__option">
-                  <input id="Templates" type="radio" value="Templates" />
-                  <label for="Templates">Templates</label>
+                <div class="__option" v-for="(type, i) in typeFilter" :key="i">
+                  <input :id="type" type="radio" :value="type" />
+                  <label :for="type">{{ type }}</label>
                 </div>
               </div>
             </div>
@@ -63,46 +44,20 @@
             <div class="select__modal">
               <div class="__options">
                 <div class="options__header">
-                  <span class="options__header__text">Select Language</span>
+                  <span class="options__header__text"
+                    >Select Language</span
+                  >
                   <span class="__close">
                     <Close />
                   </span>
                 </div>
-                <div class="__option">
-                  <input id="all language" type="radio" value="all" checked />
-                  <label for="all language">All</label>
-                </div>
-                <div class="__option">
-                  <input id="Vue" type="radio" value="Vue" />
-                  <label for="Vue">Vue</label>
-                </div>
-                <div class="__option">
-                  <input id="JavaScript" type="radio" value="JavaScript" />
-                  <label for="JavaScript">JavaScript</label>
-                </div>
-                <div class="__option">
-                  <input id="SCSS" type="radio" value="SCSS" />
-                  <label for="SCSS">SCSS</label>
-                </div>
-                <div class="__option">
-                  <input id="HTML" type="radio" value="HTML" />
-                  <label for="HTML">HTML</label>
-                </div>
-                <div class="__option">
-                  <input id="CSS" type="radio" value="CSS" />
-                  <label for="CSS">CSS</label>
-                </div>
-                <div class="__option">
-                  <input id="Python" type="radio" value="Python" />
-                  <label for="Python">Python</label>
-                </div>
-                <div class="__option">
-                  <input
-                    id="Jupyter Notebook"
-                    type="radio"
-                    value="Jupyter Notebook"
-                  />
-                  <label for="Jupyter Notebook">Jupyter Notebook</label>
+                <div
+                  class="__option"
+                  v-for="(language, i) in languageFilter"
+                  :key="i"
+                >
+                  <input :id="language" type="radio" :value="language" />
+                  <label :for="language">{{ language }}</label>
                 </div>
               </div>
             </div>
@@ -123,22 +78,9 @@
                     <Close />
                   </span>
                 </div>
-                <div class="__option">
-                  <input
-                    id="Last Updated"
-                    type="radio"
-                    value="Last Updated"
-                    checked
-                  />
-                  <label for="Last Updated">Last Updated</label>
-                </div>
-                <div class="__option">
-                  <input id="Name" type="radio" value="Name" />
-                  <label for="Name">Name</label>
-                </div>
-                <div class="__option">
-                  <input id="Stars" type="radio" value="Stars" />
-                  <label for="Stars">Stars</label>
+                <div class="__option" v-for="(sort, i) in sortFilter" :key="i">
+                  <input :id="sort" type="radio" :value="sort" />
+                  <label :for="sort">{{ sort }}</label>
                 </div>
               </div>
             </div>
@@ -148,3 +90,14 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mapState } from "vuex";
+
+export default {
+  name: "RepoAction",
+  computed: {
+    ...mapState(["typeFilter", "languageFilter", "sortFilter"]),
+  }
+};
+</script>

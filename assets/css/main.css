@@ -353,6 +353,7 @@ main {
   box-shadow: 0px 3px 17px rgb(0 0 0 / 20%);
   max-width: 200px;
   pointer-events: none;
+  z-index: 99;
 }
 
 .dropdown__arrow {
@@ -495,6 +496,16 @@ main {
   font-weight: 500;
 }
 
+.paginate__right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.paginate__left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .paginate__.disabled {
   background: var(--btn-disabled-bg);
   color: var(--btn-disabled-color);
@@ -519,6 +530,10 @@ footer {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.__copyright {
+  color: var(--text-dark);
 }
 
 .footer__logo path {

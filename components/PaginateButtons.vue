@@ -1,7 +1,7 @@
 <template>
   <div class="__pagination">
     <button
-      class="btn paginate__"
+      class="btn paginate__ paginate__left"
       :class="
         repoData.repositories.pageInfo.hasPreviousPage ? '' : 'disabled'
       "
@@ -12,7 +12,7 @@
       Previous
     </button>
     <button
-      class="btn paginate__"
+      class="btn paginate__ paginate__right"
       :class="!repoData.repositories.pageInfo.hasNextPage ? 'disabled' : ''"
       :disabled="!repoData.repositories.pageInfo.hasNextPage"
       aria-label="Next"

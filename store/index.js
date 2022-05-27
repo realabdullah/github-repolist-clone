@@ -4,6 +4,9 @@ import { getLessRepo } from '~/queries/lessRepo.js'
 import { moreRepo } from '~/queries/moreRepo.js'
 
 export const state = () => ({
+  typeFilter: ["All", "Sources", "Forks", "Archived", "Mirrors", "Templates"],
+  languageFilter: ["All", "Vue", "JavaScript", "SCSS", "HTML", "CSS", "Python", "Jupyter Notebook"],
+  sortFilter: ["Last Updated", "Name", "Stars"],
   userData: [],
   repoData: [],
   startCursor: '',
