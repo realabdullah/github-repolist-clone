@@ -348,7 +348,7 @@ main {
   top: 40px;
   left: -100px;
   width: 30rem;
-  background: var(--white);
+  background: var(--bg);
   border-radius: 5px;
   border: 1px solid var(--btn-border-color);
   box-shadow: 0px 3px 17px rgb(0 0 0 / 20%);

@@ -36,7 +36,7 @@
           ></path>
         </svg>
         <span class="action__title">Repositories</span>
-        <span class="__count">{{ repoData.repositories.totalCount }}</span>
+        <span class="__count">{{ repoData.repositories.totalCoun }}</span>
       </a>
     </li>
     <li>
@@ -94,7 +94,7 @@
           ></path>
         </svg>
         <span class="action__title">Stars</span>
-        <span class="__count">{{ repoData.starredRepositories.totalCount }}</span>
+        <span class="__count">{{ repoData.starredRepositories.totalCoun }}</span>
       </a>
     </li>
   </ul>
@@ -104,6 +104,7 @@
 import { mapState } from 'vuex'
 
 export default {
+  name: 'DesktopAction',
   computed: {
     ...mapState(['repoData'])
   }

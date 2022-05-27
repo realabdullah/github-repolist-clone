@@ -34,7 +34,7 @@ export default {
 
     async prevData() {
       await this.$store.dispatch("getLessRepoDetails");
-    },
+    }
   },
 
   computed: {

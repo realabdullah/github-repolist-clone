@@ -1,22 +1,24 @@
 <template>
   <section class="repo__details">
     <ActionTab />
-
     <div class="repo__list">
-      <!-- <RepoList v-for="(repo, i) in repoData.repositories.edges" :key="i" /> -->
+      <RepoList
+        v-for="(repo, i) in repoData.repositories.edges"
+        :key="i"
+        :repo="repo"
+      />
     </div>
-
     <PaginateButtons />
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  name: "RepoDetails",
+  name: "Repo",
   computed: {
-    ...mapState(["repoData"])
+    ...mapState(["repoData"]),
   },
 };
 </script>

@@ -20,7 +20,7 @@
       </a>
     </li>
     <li>
-      <a class="tab__link active" href="#">
+      <a class="tab__link" href="#">
         <svg
           aria-hidden="true"
           height="16"
@@ -99,3 +99,9 @@
     </li>
   </ul>
 </template>
+
+<script>
+export default {
+  name: 'MobileAction'
+}
+</script>

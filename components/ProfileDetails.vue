@@ -14,12 +14,6 @@
         </div>
       </div>
       <button class="follow__btn btn" aria-label="Follow Button">Follow</button>
-      <div class="__status">
-        <span class="status__emoji" v-html="userData.status.emojiHTML">
-          <!-- {{ userData.status.emojiHTML }} -->
-        </span>
-        <span class="status__tetx">{{ userData.status.message }}</span>
-      </div>
       <p class="about__info">{{ userData.bio }}</p>
       <div class="__others">
         <div class="url__link">
@@ -76,6 +70,7 @@
 import { mapState } from 'vuex'
 
 export default {
+  name: 'ProfileDetails',
   computed: {
     ...mapState(['userData'])
   }
