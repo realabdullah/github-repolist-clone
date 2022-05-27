@@ -1,4 +1,7 @@
-import gql from 'graphql-tag'
+import { getUserDetails } from '~/queries/fetchUser.js'
+import { getRepo } from '~/queries/fetchRepo.js'
+import { getLessRepo } from '~/queries/lessRepo.js'
+import { moreRepo } from '~/queries/moreRepo.js'
 
 export const state = () => ({
   userData: [],
@@ -10,73 +13,14 @@ export const state = () => ({
 export const actions = {
   async getUserDetails({ commit }) {
     let response = await this.app.apolloProvider.defaultClient.query({
-      query: gql`
-      {
-        user(login: "realabdullah") {
-          login
-          avatarUrl
-          bio
-          followers {
-            totalCount
-          }
-          following {
-            totalCount
-          }
-          name
-          status {
-            message
-            emojiHTML
-          }
-          twitterUsername
-          websiteUrl
-        }
-      }
-      `
+      query: getUserDetails
     })
     await commit("updateUserData", response.data.user)
   },
 
   async getRepoDetails({ state, commit }) {
     let response = await this.app.apolloProvider.defaultClient.query({
-      query: gql`
-       query getUser ($first: Int) {
-        user(login: "realabdullah") {
-          repositories(
-            first: $first,
-            isFork: false
-            orderBy: {field: UPDATED_AT, direction: DESC}
-            privacy: PUBLIC
-          ) {
-            edges {
-              cursor
-              node {
-                id
-                name
-                primaryLanguage {
-                  color
-                  name
-                }
-                updatedAt
-                url
-                visibility
-                description
-                forkCount
-              }
-            }
-            totalCount
-            pageInfo {
-              endCursor
-              hasNextPage
-              hasPreviousPage
-              startCursor
-            }
-          }
-          starredRepositories {
-            totalCount
-          }
-        }
-      }
-      `,
+      query: getRepo,
       variables: {
         first: 30,
       }
@@ -88,46 +32,7 @@ export const actions = {
 
   async getMoreRepoDetails({ state, commit }) {
     let response = await this.app.apolloProvider.defaultClient.query({
-      query: gql`
-       query getMoreRepo ($after: String, $first: Int) {
-        user(login: "realabdullah") {
-          repositories(
-            after: $after,
-            first: $first,
-            isFork: false
-            orderBy: {field: UPDATED_AT, direction: DESC}
-            privacy: PUBLIC
-          ) {
-            edges {
-              cursor
-              node {
-                id
-                name
-                primaryLanguage {
-                  color
-                  name
-                }
-                updatedAt
-                url
-                visibility
-                description
-                forkCount
-              }
-            }
-            totalCount
-            pageInfo {
-              endCursor
-              hasNextPage
-              hasPreviousPage
-              startCursor
-            }
-          }
-          starredRepositories {
-            totalCount
-          }
-        }
-      }
-      `,
+      query: moreRepo,
       variables: {
         first: 30,
         after: state.endCursor
@@ -140,46 +45,7 @@ export const actions = {
 
   async getLessRepoDetails({ state, commit }) {
     let response = await this.app.apolloProvider.defaultClient.query({
-      query: gql`
-       query getLessRepo ($before: String, $first: Int) {
-        user(login: "realabdullah") {
-          repositories(
-            before: $before,
-            first: $first,
-            isFork: false
-            orderBy: {field: UPDATED_AT, direction: DESC}
-            privacy: PUBLIC
-          ) {
-            edges {
-              cursor
-              node {
-                id
-                name
-                primaryLanguage {
-                  color
-                  name
-                }
-                updatedAt
-                url
-                visibility
-                description
-                forkCount
-              }
-            }
-            totalCount
-            pageInfo {
-              endCursor
-              hasNextPage
-              hasPreviousPage
-              startCursor
-            }
-          }
-          starredRepositories {
-            totalCount
-          }
-        }
-      }
-      `,
+      query: getLessRepo,
       variables: {
         first: 30,
         before: state.startCursor

@@ -552,6 +552,7 @@ footer {
 
   .menu__btn {
     display: block;
+    padding: .6rem 0.3rem;
   }
 
   .menu__btn svg path {
