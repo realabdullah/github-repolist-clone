@@ -29,6 +29,6 @@
 
 <script>
 export default {
-  props: ['repo']
-}
+  props: ["repo"],
+};
 </script>

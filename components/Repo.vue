@@ -1,6 +1,6 @@
 <template>
   <section class="repo__details">
-    <ActionTab />
+    <RepoAction />
     <div class="repo__list">
       <RepoList
         v-for="(repo, i) in repoData.repositories.edges"
