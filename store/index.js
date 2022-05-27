@@ -81,6 +81,7 @@ export const actions = {
         first: 30,
       }
     })
+    console.log(response.data.user)
     await commit("updateRepoData", response.data.user)
     await commit("updateStartCursor", response.data.user.repositories.pageInfo.startCursor)
     await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
@@ -133,6 +134,7 @@ export const actions = {
         after: state.endCursor
       }
     })
+    console.log('Start Cursor: ' + response.data.user.repositories.pageInfo.startCursor)
     await commit("updateRepoData", response.data.user)
     await commit("updateStartCursor", response.data.user.repositories.pageInfo.startCursor)
     await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)
@@ -185,6 +187,7 @@ export const actions = {
         before: state.startCursor
       }
     })
+    console.log('End Cursor: ' + response.data.user.repositories.pageInfo.endCursor)
     await commit("updateRepoData", response.data.user)
     await commit("updateStartCursor", response.data.user.repositories.pageInfo.startCursor)
     await commit("updateEndCursor", response.data.user.repositories.pageInfo.endCursor)

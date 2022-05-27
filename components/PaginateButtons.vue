@@ -28,12 +28,12 @@ import { mapState } from "vuex";
 
 export default {
   methods: {
-    getMore() {
-      this.$store.dispatch("getMoreRepoDetails");
+    async getMore() {
+      await this.$store.dispatch("getMoreRepoDetails");
     },
 
-    prevData() {
-      this.$store.dispatch("getLessRepoDetails");
+    async prevData() {
+      await this.$store.dispatch("getLessRepoDetails");
     },
   },
 
