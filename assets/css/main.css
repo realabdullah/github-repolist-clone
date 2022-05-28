@@ -770,6 +770,9 @@ footer {
 }
 
 @media (min-width: 1191px) {
+  header {
+    justify-content: space-around;
+  }
   .__actions {
     flex-direction: row;
   }
@@ -780,7 +783,8 @@ footer {
 
   .footer__content {
     flex-wrap: unset;
-    flex-direction: unset
+    flex-direction: unset;    
+    justify-content: space-around;
   }
 
   .footer__links {
