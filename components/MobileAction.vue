@@ -45,7 +45,7 @@ import { mapState } from "vuex";
 export default {
   name: 'MobileAction',
   computed: {
-    ...mapState(["repoData"]),
+    ...mapState(["repoData"])
   },
 };
 </script>
