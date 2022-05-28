@@ -7,11 +7,19 @@
             :src="userData.avatarUrl"
             alt="avatar"
           />
+          <div class="desktop__status">
+            <span class="status__emoji" v-html="userData.status.emojiHTML"></span>
+            <p class="status__text">{{ userData.status.message }}</p>
+          </div>
         </div>
         <div class="user__details">
           <p class="user__name">{{ userData.name }}</p>
           <p class="__username">{{ userData.login }}</p>
         </div>
+      </div>
+      <div class="__status">
+        <span class="status__emoji" v-html="userData.status.emojiHTML"></span>
+        <p class="status__text">{{ userData.status.message }}</p>
       </div>
       <button class="follow__btn btn" aria-label="Follow Button">Follow</button>
       <p class="about__info">{{ userData.bio }}</p>

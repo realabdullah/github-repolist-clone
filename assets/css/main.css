@@ -207,6 +207,7 @@ main {
 }
 
 .__avatar {
+  position: relative;
   margin-top: 1rem;
   width: 300px;
   height: 300px;
@@ -217,6 +218,44 @@ main {
   height: 100%;
   border-radius: 50%;
   border: 2px solid var(--gray-color);
+}
+
+.desktop__status {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  position: absolute;
+  right: -50px;
+  bottom: 50px;
+}
+
+.desktop__status .status__emoji {
+  border: .1rem solid var(--btn-border-color);
+  border-radius: 50%;
+  background: var(--bg);
+  padding: .5rem;
+}
+
+.desktop__status .status__text {
+  color: var(--primary-link);
+  visibility: hidden;
+}
+
+.desktop__status:hover {
+  border: .1rem solid var(--btn-border-color);
+  border-radius: 20px;
+  background: var(--bg);
+  padding: .5rem;
+}
+
+.desktop__status:hover .status__emoji {
+  border: none;
+  background: unset;
+  padding: 0;
+}
+
+.desktop__status:hover .status__text {
+  visibility: visible;
 }
 
 .user__details {
@@ -255,12 +294,13 @@ main {
 }
 
 .__status {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  padding-top: .7rem;
-  padding-bottom: .5rem;
+  display: none;
+}
+
+.status__text {
   color: var(--text-dark);
+  font-size: .8rem;
+  font-weight: 400;
 }
 
 .__others {
@@ -335,6 +375,7 @@ main {
   margin-top: .5rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: .5rem;
 }
 
@@ -616,6 +657,21 @@ footer {
 
   .__username {
     font-size: 1.2rem;
+  }
+
+  .desktop__status {
+    display: none;
+  }
+
+  .__status {
+    border: .1rem solid var(--btn-border-color);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    padding: 0.3rem 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: .8rem;
   }
 
   .follow__btn {
