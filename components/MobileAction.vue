@@ -10,7 +10,9 @@
       <a class="tab__link active" href="#">
         <RepoIcon />
         <span class="action__title">Repositories</span>
-        <span class="__count">58</span>
+        <span class="__count">
+          {{ repoData.repositories.totalCount }}
+        </span>
       </a>
     </li>
     <li>
@@ -29,14 +31,21 @@
       <a class="tab__link" href="#">
         <StarsIcon />
         <span class="action__title">Stars</span>
-        <span class="__count">21</span>
+        <span class="__count">
+          {{ repoData.starredRepositories.totalCount }}
+        </span>
       </a>
     </li>
   </ul>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-  name: 'MobileAction'
-}
+  name: 'MobileAction',
+  computed: {
+    ...mapState(["repoData"]),
+  },
+};
 </script>
