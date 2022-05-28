@@ -197,7 +197,9 @@ main {
 .__count {
   background-color: var(--badge-bg);
   padding: .1rem .3rem;
-  border-radius: 50%;
+  border-radius: 2rem;
+  padding: 0 .4rem;
+  font-size: .75rem;
 }
 
 .container {
