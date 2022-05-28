@@ -4,7 +4,7 @@
       <label for="search">
         <input
           class="repo__search"
-          type="search"
+          type="text"
           placeholder="Find a repository..."
           ref="details"
         />

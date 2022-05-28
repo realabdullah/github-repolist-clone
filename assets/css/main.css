@@ -15,8 +15,9 @@
   --primary-link: #0969da;
   --border-active: #f78166;
   --label-accent: #388bfd26;
-  --btn-disabled-bg: #0d1117;
-  --btn-bg: #21262d;
+  --btn-disabled-color: #0969da80;
+  --btn-disabled-bg: #f6f8fa;
+  --btn-bg: #f6f8fa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +30,7 @@
   --badge-bg: #6e768166;
   --badge-color: #c9d1d9;
   --primary-link: #58a6ff;
+  --btn-bg: #21262d;
   --btn-disabled-color: #58a6ff80;
   --btn-disabled-bg: #0d1117;
   }  
