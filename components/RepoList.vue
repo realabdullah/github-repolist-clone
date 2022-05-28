@@ -5,6 +5,18 @@
         <a :href="repo.node.url" class="repo__title">{{ repo.node.name }}</a>
         <span class="__visibility">{{ repo.node.visibility }}</span>
       </div>
+      <p class="__description">
+        {{ repo.node.description }}
+      </p>
+      <div class="__labels">
+        <a
+          class="__label"
+          v-for="(topics, i) in repo.node.repositoryTopics.nodes"
+          :key="i"
+          :href="topics.url"
+          >{{ topics.topic.name }}</a
+        >
+      </div>
       <div class="repo__info">
         <div
           class="__technology"

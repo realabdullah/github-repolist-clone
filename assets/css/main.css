@@ -8,12 +8,13 @@
   --border-active-color: #FD8673;
   --gray-color: #afb8c133;
   --nav-hover-state: #dfdddd;
-  --border-color: #57606a;
+  --border-color: #8b949e;
   --btn-light-color: #f6f8fa;
   --btn-border-color: #d5d7da;
   --badge-bg: #eff1f3;
   --primary-link: #0969da;
   --border-active: #f78166;
+  --label-accent: #388bfd26;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -489,6 +490,27 @@ main {
   color: var(--border-color);
   font-size: .7rem;
   text-transform: lowercase;
+}
+
+.__description {
+  color: var(--border-color);
+  font-size: .9rem;
+  padding: .6rem 0;
+}
+
+.__labels {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.__label {
+  padding: 0.1rem 0.7rem;
+  padding-bottom: 0.25rem;
+  background: var(--label-accent);
+  border-radius: 20px;
+  color: var(--primary-link);
 }
 
 .repo__info {

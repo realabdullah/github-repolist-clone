@@ -23,6 +23,14 @@ export const getRepo = gql`
             visibility
             description
             forkCount
+            repositoryTopics(first: 10) {
+              nodes {
+                url
+                topic {
+                  name
+                }
+              }
+            }
           }
         }
         totalCount
