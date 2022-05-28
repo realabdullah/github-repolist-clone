@@ -467,6 +467,7 @@ main {
 .repo__name {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .repo__title {
