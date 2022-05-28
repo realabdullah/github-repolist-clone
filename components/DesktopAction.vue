@@ -10,7 +10,7 @@
       <a class="tab__link active" href="#">
         <RepoIcon />
         <span class="action__title">Repositories</span>
-        <span class="__count">{{ repoData.repositories.totalCoun }}</span>
+        <span class="__count">{{ repoData.repositories.totalCount }}</span>
       </a>
     </li>
     <li>
@@ -30,7 +30,7 @@
         <StarsIcon />
         <span class="action__title">Stars</span>
         <span class="__count">{{
-          repoData.starredRepositories.totalCoun
+          repoData.starredRepositories.totalCount
         }}</span>
       </a>
     </li>
