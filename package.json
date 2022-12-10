@@ -1,6 +1,11 @@
 {
   "name": "github-repolist-clone",
   "version": "1.0.0",
+
+"engines": {
+    "node": "16.x.x"
+  },
+
   "private": true,
   "scripts": {
     "dev": "nuxt",
