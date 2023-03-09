@@ -46,7 +46,27 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/pwa',
   ],
+
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  pwa: {
+    icon: {
+      source: '/github-mark.png',
+      fileName: 'github-mark.png'
+    },
+    manifest: {
+      name: 'realabdullah (Abdullahi Odesanmi) / Repositories . GitHub',
+      short_name: 'realabdullah',
+      lang: 'en'
+    },
+    meta: {
+      name: 'realabdullah (Abdullahi Odesanmi) / Repositories . GitHub',
+      author: 'realabdullah',
+      description: 'realabdullah (Abdullahi Odesanmi) / Repositories . GitHub',
+      theme_color: '#ffffff',
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
