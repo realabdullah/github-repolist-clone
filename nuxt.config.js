@@ -34,8 +34,7 @@ export default {
     // GraphQl Apollo Client
     '@nuxtjs/apollo',
     // MomentJs
-    '@nuxtjs/moment',
-    ['@nuxtjs/router', { keepDefaultRouter: true }]
+    '@nuxtjs/moment'
   ],
 
   // Apollo configuration

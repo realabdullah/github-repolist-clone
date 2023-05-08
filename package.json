@@ -26,7 +26,6 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@nuxtjs/pwa": "^3.3.5",
-    "@nuxtjs/router": "^1.7.0"
+    "@nuxtjs/pwa": "^3.3.5"
   }
 }
