@@ -1,31 +1,33 @@
 {
-  "name": "github-repolist-clone",
-  "version": "1.0.0",
-  "private": true,
-  "engines": {
-    "node": "16.x.x"
-  },
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@nuxtjs/apollo": "^4.0.1-rc.5",
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/moment": "^1.6.1",
-    "@nuxtjs/proxy": "^2.1.0",
-    "core-js": "^3.19.3",
-    "graphql-tag": "^2.12.6",
-    "nuxt": "^2.15.8",
-    "vue": "^2.6.14",
-    "vue-meta": "^2.4.0",
-    "vue-server-renderer": "^2.6.14",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^4.46.0"
-  },
-  "devDependencies": {
-    "@nuxtjs/pwa": "^3.3.5"
-  }
+	"name": "github-repolist-clone",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+		"lint:prettier": "prettier --check .",
+		"lint": "yarn lint:js && yarn lint:prettier",
+		"lintfix": "prettier --write --list-different . && yarn lint:js --fix"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@nuxtjs/apollo": "^5.0.0-alpha.6",
+		"@nuxtjs/eslint-config": "^12.0.0",
+		"@nuxtjs/eslint-config-typescript": "^12.0.0",
+		"@typescript-eslint/parser": "^6.3.0",
+		"eslint": "^8.49.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"nuxt": "^3.7.1",
+		"prettier": "^3.0.1",
+		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"@pinia/nuxt": "^0.4.11",
+		"pinia": "^2.1.6",
+		"sass": "^1.66.1"
+	}
 }

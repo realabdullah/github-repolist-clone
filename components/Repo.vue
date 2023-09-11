@@ -1,24 +1,15 @@
-<template>
-  <section class="repo__details">
-    <RepoAction />
-    <div class="repo__list">
-      <RepoList
-        v-for="(repo, i) in repoData.repositories.edges"
-        :key="i"
-        :repo="repo"
-      />
-    </div>
-    <PaginateButtons />
-  </section>
-</template>
-
-<script>
-import { mapState } from "vuex";
-
-export default {
-  name: "Repo",
-  computed: {
-    ...mapState(["repoData"]),
-  },
-};
+<script lang="ts" setup>
+const { repositories } = useStore();
 </script>
+
+<template>
+	<section class="repo__details">
+		<RepoAction />
+		<div class="repo__list">
+			<template v-if="repositories?.edges && repositories.edges.length > 0">
+				<RepoList v-for="repo in repositories?.edges" :key="repo.node.id" :repository="repo.node" />
+			</template>
+		</div>
+		<PaginateButtons />
+	</section>
+</template>
